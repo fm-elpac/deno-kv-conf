@@ -19,7 +19,7 @@ TODO
 client (CLI):
 
 ```ts
-import { main } from "@fm-elpac/deno-kv-conf";
+import { main } from "@fm-elpac/deno-kv-conf/client";
 
 if (import.meta.main) {
   await main(Deno.args, "/pmim/server_token", "/pmim/port", "/pmims_api");
