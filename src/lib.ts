@@ -27,7 +27,7 @@ export class Conf {
    */
   async conf_get(键列表: Array<string>): Promise<{ [k: string]: unknown }> {
     const 键 = 键列表.map((k) =>
-      ([] as Array<string>).concat(this._k_conf, [k])
+      ([] as Array<unknown>).concat(this._k_conf, [k]) as Deno.KvKey
     );
     const 数据 = await 读取多键1(this._kv, 键);
 
@@ -45,7 +45,10 @@ export class Conf {
     const t = this._kv.atomic();
 
     for (const i of Object.keys(数据)) {
-      t.set(([] as Array<string>).concat(this._k_conf, [i]), 数据[i]);
+      t.set(
+        ([] as Array<unknown>).concat(this._k_conf, [i]) as Deno.KvKey,
+        数据[i],
+      );
     }
 
     const r = await t.commit();
