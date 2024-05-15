@@ -1,0 +1,12 @@
+{
+  "name": "@fm-elpac/deno-kv-conf",
+  "version": "0.0.1",
+  "exports": {
+    ".": "./src/lib.ts",
+    "./client": "./src/client.ts"
+  },
+  "imports": {
+    "@std/path": "jsr:@std/path@^0.224.0"
+  },
+  "unstable": ["kv"]
+}
